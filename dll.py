@@ -23,7 +23,9 @@ class DoubleLinkedList(object):
 		else:
 			curr._next = node
 			node._prev = curr
+			self.tail = node._prev
 			self.head = node
+		self.size += 1
 			
 	def append(self, node):
 		if self.head is None:
@@ -45,6 +47,21 @@ class DoubleLinkedList(object):
 			self.head = self.head._next
 			self.size -= 1
 			return node
+	
+	def shift(self):
+		currT = self.tail
+		if self.tail is None:
+			raise Exception("empty list")
+		else:
+			#make tail _next the new tail
+			currT._next = currT
+			#make tail prev None
+			currT._prev = None
+			# return the current tail
+			self.size -= 1
+		return self.tail
+		
+		#if head is tail: for special case of last node
 		
 			
 	def forward(self):
@@ -95,3 +112,6 @@ print(n2._value)
 print("a == ", dl.head._value)
 print("head prev, b == ", dl.head._prev._value)
 
+dl.shift()
+print('tail value should be a: ', dl.tail._value)
+print('head value : ', dl.head._value)
