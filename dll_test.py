@@ -78,9 +78,22 @@ class TestIt(unittest.TestCase):
 		dl.remove('C')  #this removes C so tail should become BaseException
 		self.assertEqual(dl.tail._value, 'B')
 		
+	def test_9(self):
+		"""test remove if only one element in list"""
+		n1 = Node('A')
+		dl = DoubleLinkedList()
+		dl.remove('A')
+		self.assertEqual(dl.size, 0)
 		
+	def test_10(self):
+		"""test that using pop on empty list doesn't break code. Head is None"""
+		dl = DoubleLinkedList()
+		dl.pop()
+		self.assertEqual(dl.head, None)
 		
-		
-		
-	
-		
+	"""def test_11(self):
+		test that using shift on empty list doesn't break code. Head is None
+		dl = DoubleLinkedList
+		assert dl.shift()
+		assert Exception
+	"""

@@ -35,7 +35,7 @@ class DoubleLinkedList(object):
 			self.tail._next = node
 			node._prev = self.tail
 			self.tail = node
-			self.size += 1
+		self.size += 1
 	
 	def pop(self):
 		if self.head is None:
@@ -43,11 +43,13 @@ class DoubleLinkedList(object):
 		
 		elif self.head is self.tail:
 			return head
+			self.size -= 1
 		else:
 			node = self.head
 			self.head = self.head._next
-			self.size -= 1
+		
 			return node
+			self.size -= 1
 	
 	
 	def shift(self):
@@ -55,11 +57,11 @@ class DoubleLinkedList(object):
 		if self.tail is None:
 			raise Exception("empty list")
 		elif self.head is self.tail:
-			return tail
+			return self.tail
 		else:
 			node = self.tail
 			self.tail = self.tail._prev
-			self.size -= 1
+		self.size -= 1
 		return self.tail
 	
 		
