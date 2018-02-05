@@ -2,6 +2,7 @@ class Node(object):
 	_value = 0
 	_next = None
 	_prev = None
+
 	
 	def __init__(self, value):
 		self._value = value
@@ -16,6 +17,7 @@ class LinkedList(object):
 	_head = None
 	_tail = None
 	_size = 0
+
 	
 	def __init__(self):
 		pass
@@ -31,11 +33,18 @@ class LinkedList(object):
 				if curr._next is None:
 					curr._next = node
 					break
+
 		self._size += 1
 		
 			
 	def pop(self):
 		if self._head is None:
+
+		self._length += 1
+		
+			
+	def pop(self):
+		if self.head is None:
 			return None
 		#non - empty list - get (return) the node at the head, and 
 		#reset the head to the next head in the list
@@ -47,7 +56,8 @@ class LinkedList(object):
 		
 	def size(self):
 		return self._size
-		
+  
+
 	def search(self, val):
 		if self._head is None:
 			return None
@@ -78,6 +88,7 @@ class LinkedList(object):
 				prev = curr
 				curr = curr._next
 		
+
 	
 	def display(self):
 		curr = self._head
