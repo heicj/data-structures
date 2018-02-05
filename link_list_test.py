@@ -13,6 +13,7 @@ class TestIt(unittest.TestCase):
 		link = LinkedList()
 		link.append(n1)
 		self.assertEqual(link._head._value, 'A')
+		self.assertEqual(len(link), 1)
 		
 	def test_3(self):
 		"""test pop returns correct node"""
@@ -23,6 +24,7 @@ class TestIt(unittest.TestCase):
 		link.append(n2)
 		node = link.pop()
 		self.assertEqual(node._value, 'A')
+		self.assertEqual(len(link), 1)
 	
 	def test_4(self):
 		"""test that pop off only item in list that head becomes None"""
@@ -38,27 +40,5 @@ class TestIt(unittest.TestCase):
 		link.pop()
 		self.assertEqual(None, None)
 		
-	"""def test_6(self):
-		test remove
-		n1 = Node('A')
-		n2 = Node('B')
-		n3 = Node('C')
-		link = LinkedList()
-		link.append(n1)
-		link.append(n2)
-		link.append(n3)
-		link.remove(n2)
-		self.assertEqual(head._next._value, 'C')
-	"""
-	
-	def test_7(self):
-		n1 = Node('A')
-		n2 = Node('B')
-		n3 = Node('C')
-		link = LinkedList()
-		link.append(n1)
-		link.append(n2)
-		link.append(n3)
-		dis = link.display()
-		self.assertEqual(['A','B','C'], ['A','B','C'])
+
 		

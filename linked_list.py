@@ -88,4 +88,4 @@ class LinkedList(object):
 			
 		
 	def __len__(self):
-		return(self.size)
+		return(self._size)
