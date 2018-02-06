@@ -52,7 +52,7 @@ class TestIt(unittest.TestCase):
 		self.assertEqual(len(d), 2)
 		
 	
-	"""def test_6(self):
+	def test_6(self):
 		n1 = Node('A')
 		n2 = Node('B')
 		n3 = Node('C')
@@ -62,7 +62,7 @@ class TestIt(unittest.TestCase):
 		d.appendleft(n3)
 		res = d.pop()
 		self.assertEqual(res._value, "B")
-	"""
+	
 	
 	def test_7(self):
 		"""test that error is raised when popleft is used on empty deque"""
@@ -71,7 +71,7 @@ class TestIt(unittest.TestCase):
 			d.popleft()
 	
 	def test_8(self):
-		"""test popleft when nodes exist in it"""
+		"""test popleft when it has a node"""
 		n1 = Node('A')
 		n2 = Node('B')
 		d = Deque()
@@ -80,4 +80,39 @@ class TestIt(unittest.TestCase):
 		res = d.popleft()
 		self.assertEqual(res._value, "A")
 		self.assertEqual(d.front._value, "B")
+		self.assertEqual(len(d), 1)
+	
+	def test_9(self):
+		"""test peek returns none if deque is empty"""
+		d = Deque()
+		self.assertEqual(d.peek(), None)
+	
+	def test_10(self):
+		"""test peek returns value of pop put doesn't remove item"""
+		n1 = Node('A')
+		n2 = Node('B')
+		d = Deque()
+		d.append(n1)
+		d.append(n2)
+		self.assertEqual(d.peek()._value, "B") #returns value of rear
+		self.assertEqual(len(d), 2) #len doesn't change because node wasn't removed
+	
+	def test_11(self):
+		"""test peekleft returns value of peekleft but doesn't remove item"""
+		n1 = Node('A')
+		n2 = Node('B')
+		d = Deque()
+		d.append(n1)
+		d.append(n2)
+		self.assertEqual(d.peekleft()._value, "A")
+		self.assertEqual(len(d), 2)
+		
+	def test_12(self):
+		"""test peekleft returns None if deque is empty"""
+		d = Deque()
+		self.assertEqual(d.peekleft(), None)
+		self.assertEqual(len(d), 0)
+		
+	
+		
 		

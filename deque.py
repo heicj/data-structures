@@ -35,7 +35,7 @@ class Deque(object):
 		
 		self.size += 1
 	
-	def pop(self): #not working yet
+	def pop(self): 
 		""" removes a value from the end of the deque and returns it raises exception if empty """
 		if self.front is None:
 			raise exception('Empty deque')
@@ -58,13 +58,20 @@ class Deque(object):
 		else:
 			curr = self.front
 			self.front = self.front._next
+			self.size -= 1
 			return curr
-		
+			
+	
 	def peek(self):
 		"""
 		returns the next value that would be returned by pop but leaves the value
 		in the deque. Returns None if empty
 		"""
+		if self.front is None:
+			return None
+		else:
+			val = self.rear
+			return val
 		
 	
 	def peekleft(self):
@@ -72,12 +79,14 @@ class Deque(object):
 		returns the next value that would be returned by popleft but leaves the value in the deque
 		returns None if deque is empty
 		"""
+		if self.front is None:
+			return None
+		else:
+			val = self.front
+			return val
 		
 	def __len__(self):
-		"""
-		returns the count of the items in the deque
-		returns 0 if empty
-		"""
+		""" returns the count of the items in the deque returns 0 if empty """
 		if self.size == 0:
 			return 0
 		else:
