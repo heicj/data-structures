@@ -19,3 +19,15 @@ This repository has sample code for differect classic data structures.  Implemen
   #### test file: stack_test.py
   #### time complexity: access and search 0(n). Insersion and deletion 0(1).
                 http://bigocheatsheet.com/
+                
+## Deque:
+  #### module: deque.py
+  #### module: deque_tests.py
+  #### Time complexity
+        append: O(1)
+        appendleft: O(1)
+        pop: O(n)
+        popleft: O(1)
+        peek: O(1)
+        peekleft: O(1)
+        
