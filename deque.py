@@ -1,6 +1,5 @@
 class Node(object):
 	_next = None
-	_prev =None
 	_value = 0
 	
 	def __init__(self, value):
@@ -21,33 +20,54 @@ class Deque(object):
 			self.rear = node
 		else:
 			self.rear._next = node
-			node._prev = self.rear
 			self.rear = node
 		
 		self.size += 1
 		
-	def appendleft(node):
+	def appendleft(self, node):
 		"""adds a value to the front of the deque"""
-	
-	def pop():
-		"""
-		removes a value from the end of the deque and returns it
-		raises exception if empty
-		"""
-	
-	def popleft():
-		"""
-		removes a value from the front of the deque and returns it
-		raises exception if empty
-		"""
+		if self.front is None:
+			self.front = node
+			self.rear = node
+		else:
+			node._next = self.front
+			self.front = node
 		
-	def peek():
+		self.size += 1
+	
+	def pop(self): #not working yet
+		""" removes a value from the end of the deque and returns it raises exception if empty """
+		if self.front is None:
+			raise exception('Empty deque')
+		else:
+			curr = self.front
+			pop = curr
+			while curr._next is not None:
+				pop = curr
+				curr = curr._next
+				if curr._next == None:
+					self.rear = curr
+					return pop
+			
+			self.size -= 1
+	
+	def popleft(self):
+		""" removes a value from the front of the deque and returns it raises exception if empty"""
+		if self.front is None:
+			raise ValueError
+		else:
+			curr = self.front
+			self.front = self.front._next
+			return curr
+		
+	def peek(self):
 		"""
 		returns the next value that would be returned by pop but leaves the value
 		in the deque. Returns None if empty
 		"""
+		
 	
-	def peekleft():
+	def peekleft(self):
 		"""
 		returns the next value that would be returned by popleft but leaves the value in the deque
 		returns None if deque is empty
