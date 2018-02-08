@@ -12,17 +12,17 @@ class Heap(object):
 		self.root = None
 		
 	def push(self, key):
-		
+		"""inserts into proper place in heap"""
 		if self.root is None:
 			self.root = Node(key)
-		
+
 		curr = self.root
 		while True:
 			if curr.key == key:
 				return
 				
 				
-			elif key < curr.key:
+			elif self.key < curr.key:
 				if curr.left is None:
 					curr.left = Node(key)
 				else:
@@ -35,3 +35,19 @@ class Heap(object):
 				else:
 					curr = curr.right
 	
+	def pop(self):
+		"""removes top of heap"""
+		if self.root is None:
+			return None
+			
+		if self.root is not None:
+			curr = self.root
+			
+			if curr.left is None:
+				if curr.right is None:
+					self.root = None
+					return curr
+			
+			
+			
+			
